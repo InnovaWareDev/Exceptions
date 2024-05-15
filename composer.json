@@ -1,0 +1,22 @@
+{
+    "name": "innovaware/exceptions",
+    "description": "Throw app exceptions and send mail to support mailbox",
+    "type": "composer-plugin",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "ProjectName\\": "app/",
+            "Innovaware\\Exceptions\\": "packages/innovaware/exceptions/src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Innovaware",
+            "email": "dev@innovaware.nl"
+        }
+    ],
+
+    "minimum-stability": "dev",
+    "require": {
+    }
+}
