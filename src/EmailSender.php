@@ -9,12 +9,21 @@ class EmailSender
 {
     public static function reportError($error)
     {
-        $promise = Http::async()->post('https://portaal.innovaware.nl/webhooks/app/aken/exception', ['error' => $error])
+        if (env('INNOVAWARE_APP_KEY') != null) {}
+        $errorObj = [
+            "file" => $error->getFile(),
+            "line" => $error->getLine(),
+            "code" => $error->getCode(),
+            "message" => $error->getMessage(),
+            "trace" => $error->getTraceAsString(),
+            "APP_ENV" => env('APP_ENV'),
+        ];
+
+        $promise = Http::async()->post('https://portaal.innovaware.nl/webhooks/app/aken/exception', ['error' => json_encode($errorObj)])
             ->then(function ($response) {
-            echo "Response received!";
-            dd($response, $response->body());
-            echo $response->body();
-        });
+            });
+
+        $promise->wait();
     }
 
 }
