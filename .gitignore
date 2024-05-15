@@ -6,6 +6,7 @@
 /routes
 /resources
 /storage
+/packages
 /.phpunit.cache
 /node_modules
 /public/build

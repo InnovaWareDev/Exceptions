@@ -6,7 +6,7 @@
     "autoload": {
         "psr-4": {
             "ProjectName\\": "app/",
-            "Innovaware\\Exceptions\\": "packages/innovaware/exceptions/src"
+            "Innovaware\\Exceptions\\": "src"
         }
     },
     "authors": [
