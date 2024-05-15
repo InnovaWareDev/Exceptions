@@ -10,7 +10,8 @@ class EmailSender
 {
     public static function reportError($error)
     {
-        if (env('INNOVAWARE_APP_KEY') != null) {
+        $app_key = env('INNOVAWARE_APP_KEY');
+        if ($app_key != null) {
             $errorObj = [
                 "file" => $error->getFile(),
                 "line" => $error->getLine(),
@@ -37,7 +38,7 @@ class EmailSender
                 "APP_ENV" => env('APP_ENV'),
             ];
 
-            $promise = Http::async()->post('https://portaal.innovaware.nl/webhooks/app/aken/exception', ['error' => json_encode($errorObj)])
+            $promise = Http::async()->post("https://portaal.innovaware.nl/webhooks/app/$app_key/exception", ['error' => json_encode($errorObj)])
                 ->then(function ($response) {
                 });
 
