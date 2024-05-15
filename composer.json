@@ -19,5 +19,10 @@
     "minimum-stability": "dev",
     "require": {
         "laravel/framework": "^v10.2.0"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "echo 'Copy ' \\Innovaware\\Exceptions\\InnovawareExceptionServiceProvider::class' to your providers array'"
+        ]
     }
 }
