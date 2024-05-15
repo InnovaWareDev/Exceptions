@@ -2,14 +2,19 @@
 
 namespace Innovaware\Exceptions;
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
 class EmailSender
 {
-    public static function sendErrorEmail($error)
+    public static function reportError($error)
     {
-        Mail::send('emails::emails.error', ['error' => $error], function ($message) {
-            $message->to('support@innovaware.nl')->subject('Foutmelding');
+        $promise = Http::async()->post('https://portaal.innovaware.nl/webhooks/app/aken/exception', ['error' => $error])
+            ->then(function ($response) {
+            echo "Response received!";
+            dd($response, $response->body());
+            echo $response->body();
         });
     }
+
 }
