@@ -19,12 +19,5 @@
     "minimum-stability": "dev",
     "require": {
         "laravel/framework": "^v10.2.0"
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "\\Innovaware\\Exceptions\\PackageServiceProvider"
-            ]
-        }
     }
 }

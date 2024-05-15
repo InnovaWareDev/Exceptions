@@ -4,7 +4,6 @@
 /database
 /public
 /routes
-/resources
 /storage
 /packages
 /.phpunit.cache
