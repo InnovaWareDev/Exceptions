@@ -38,7 +38,7 @@ class EmailSender
                 "APP_ENV" => env('APP_ENV'),
             ];
 
-            $promise = Http::async()->post("https://portaal.innovaware.nl/webhooks/app/$app_key/exception", ['error' => json_encode($errorObj)])
+            $promise = Http::async()->post("https://portaal.innovaware.nl/webhooks/app/$app_key/exception", json_encode($errorObj))
                 ->then(function ($response) {
                 });
 
